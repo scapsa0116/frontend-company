@@ -1,5 +1,5 @@
 html {
-    background-image: url("https://www.feastingathome.com/wp-content/uploads/2015/05/mezcal-margarita-205-683x1024.jpg");
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSpSNe7RjykVDYHAc9YpFYrXBofpL1dKmK2hQ&usqp=CAU");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left top;
@@ -43,4 +43,10 @@ h1, h3 {
   input[type=button]:hover, input[type=submit]:hover, button:hover {
     background-color: gold;
     color: black;
+  }
+
+  .editable {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
   }
