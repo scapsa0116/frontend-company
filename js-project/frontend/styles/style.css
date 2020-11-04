@@ -1,0 +1,183 @@
+html {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS5PS4CscjwqsOVMa29OU_UYgTSS0Q77s-Usg&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left top;
+  font-family: 'Alata', sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    padding: 10px 50px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: space-around;
+  }
+
+h1, h3 {
+    text-align:center;
+    text-shadow: 0px 0px 25px white;
+  }
+  
+  input {
+    
+    cursor: pointer;
+    position: relative;
+     left: 20px;
+     top: 10%;
+     
+    padding: 2.5rem 7.5rem;
+    border-radius: 3.75rem;
+    line-height: 2.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    
+    border: 1px solid #012880;
+    background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
+    box-shadow: 0 1rem 1.25rem 0 rgba(22,75,195,0.50),
+                0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
+                0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
+                0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+  }
+  
+  button {
+    cursor: pointer;
+    position: relative;
+    padding: 2.5rem 7.5rem;
+    border-radius: 3.75rem;
+    line-height: 2.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    
+    border: 1px solid #012880;
+    background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
+    box-shadow: 0 1rem 1.25rem 0 rgba(22,75,195,0.50),
+                0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
+                0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
+                0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+  }
+  
+  button span {
+    color: transparent;
+    background-image: linear-gradient(0deg, #EE82DA 0%, #FEFAFD 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
+  }
+  
+  button::before {
+    content: "";
+    display: block;
+    height: 0.25rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 7.5rem);
+    background: #fff;
+    border-radius: 100%;
+    
+    opacity: 0.7;
+    background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
+  }
+  
+  button::after {
+    content: "";
+    display: block;
+    height: 0.25rem;
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 7.5rem);
+    background: #fff;
+    border-radius: 100%;
+    
+    filter: blur(1px);
+    opacity: 0.05;
+    background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
+  }
+
+  input[type=button], input[type=submit], button {
+    padding: 5px 10px;
+    border-radius: 25px;
+    background-color: grey;
+    color: white;
+    border: 2px solid black;
+    transition-duration: 0.4s;
+  }
+  
+  input[type=button]:hover, input[type=submit]:hover, button:hover {
+    background-color: gold;
+    color: black;
+  }
+
+  .editable {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+  } 
+  /* .button {
+    position: fixed;
+    text-align: center;
+    font-size: 42px;
+    font-family: 'Raleway', sans-serif;
+    color: hsl(220, 80%, 50%);
+    width: 350px;
+    height: 100px;
+    margin-top: calc(50vh - 75px);
+    margin-left: calc(50vw - 175px);
+  
+    border-radius: 30px;
+    text-shadow: 
+      0px 5px hsl(220, 80%, 30%), 
+      0px 10px 10px #0003;
+    box-shadow: 
+      0px 0px 0px 15px hsl(330, 80%, 50%),
+      0px 10px 0px 15px hsl(330, 80%, 40%),
+      0px 20px 20px 15px #0003;
+    cursor: pointer;
+    border-radius: 100px 30px 100px 30px;
+  
+  }
+  
+  .button p {
+    margin-top: 20px;
+    transform: rotate(-3deg);
+  }
+  
+  .button:hover {
+    animation: .8s morph ease infinite;
+  }
+  
+  .button:hover p {
+    animation: .8s rot ease infinite;
+  }
+  
+  @keyframes morph {
+    0% {
+      border-radius: 100px 30px 100px 30px;
+    } 50% {
+      border-radius: 30px 100px 30px 100px;
+    } 100% {
+      border-radius: 100px 30px 100px 30px;
+    }
+  }
+  
+  @keyframes rot {
+    0% {
+      transform: rotate(-3deg);
+    } 50% {
+      transform: rotate(3deg);
+    } 100% {
+      transform: rotate(-3deg);
+    }
+  }
+ */
+
+
+ 
