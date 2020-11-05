@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    createSearchForm()
     createForm();
     fetchDrinks();
     
@@ -85,4 +86,28 @@ function deleteDrink(){
 
 
 
+const createSearchForm = () => {
+    let searchForm = document.getElementById("search-form")
+    searchForm.innerHTML +=
+    `
+    <input type="text" placeholder="Cathegory" id="search"/>
+    <button id="search-bttn">Search</button>
+    
+    `
 
+    let searchBttn = document.getElementById('search-bttn')
+    searchBttn.addEventListener("click", processSearchQuery)
+}
+
+
+const processSearchQuery = () => {
+let query = document.getElementById('search').value
+
+
+fetch(`${BASE_URL}/search/${query}`)
+.then(resp => resp.json())
+.then(category => {
+    const div = `<div id="search-results"></div>`
+    document.searchForm.insertAdjacentHTML("beforeend", div);
+})
+}
