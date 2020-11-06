@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    createSearchForm()
+    createSearchForm();
     createForm();
     fetchDrinks();
     
@@ -90,7 +90,7 @@ const createSearchForm = () => {
     let searchForm = document.getElementById("search-form")
     searchForm.innerHTML +=
     `
-    <input type="text" placeholder="Cathegory" id="search"/>
+    <input type="text" placeholder="Search by Cathegory" id="search"/><br><br>
     <button id="search-bttn">Search</button>
     
     `
@@ -101,13 +101,28 @@ const createSearchForm = () => {
 
 
 const processSearchQuery = () => {
+// let drinksForm = document.getElementById("drinks-form")
+//    drinksForm.innerHTML += ``
 let query = document.getElementById('search').value
 
 
 fetch(`${BASE_URL}/search/${query}`)
 .then(resp => resp.json())
 .then(category => {
-    const div = `<div id="search-results"></div>`
-    document.searchForm.insertAdjacentHTML("beforeend", div);
+    // const div = document.getElementById("search-results")
+    // div.innerHTML += `${category.name}`
+
+    let drinksForm = document.getElementById("drinks-form")
+    drinksForm.innerHTML +=
+    `
+    <div id="search-results">
+    ${category.name}
+    </div>
+    `
+})
+.catch(error => {
+   const msg = {message: "Choose category alcoholic or nonalcoholic"}
+   let drinksForm = document.getElementById("drinks-form")
+   drinksForm.innerHTML += `${msg.message}`
 })
 }

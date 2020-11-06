@@ -1,5 +1,5 @@
 html {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS5PS4CscjwqsOVMa29OU_UYgTSS0Q77s-Usg&usqp=CAU");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNy1Up-rFqXeiJPhkSEflpznrtNtmrrZzpOw&usqp=CAU");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left top;
@@ -9,7 +9,18 @@ html {
 body {
     margin: 0 auto;
     padding: 10px 50px;
+    color:white;
+    text-align:left;
+    
   }
+  /* div {
+    border: 1px solid black;
+    padding: 25px 50px 75px 100px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrluiHON1UFiyUVi8u6IzmTMzvDnNPvA-jUg&usqp=CAU");
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left top;
+  } */
   
   nav {
     display: flex;
@@ -18,9 +29,13 @@ body {
     align-content: space-around;
   }
 
-h1, h3 {
+/* h1, h3 {
     text-align:center;
     text-shadow: 0px 0px 25px white;
+  } */
+
+  #drinks-form {
+    border: 1px solid rgb(130, 174, 231);
   }
   
   input {
@@ -30,14 +45,14 @@ h1, h3 {
      left: 20px;
      top: 10%;
      
-    padding: 2.5rem 7.5rem;
+    padding: 0.5rem 0.10rem;
     border-radius: 3.75rem;
     line-height: 2.5rem;
     font-size: 2rem;
     font-weight: 600;
     
     border: 1px solid #012880;
-    background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
+    background-image: linear-gradient(-180deg, #5953b8 0%, #4d2c68 100%);
     box-shadow: 0 1rem 1.25rem 0 rgba(22,75,195,0.50),
                 0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
                 0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
@@ -47,14 +62,14 @@ h1, h3 {
   button {
     cursor: pointer;
     position: relative;
-    padding: 2.5rem 7.5rem;
+    padding: 0.5rem 0.7rem;
     border-radius: 3.75rem;
     line-height: 2.5rem;
     font-size: 2rem;
     font-weight: 600;
     
     border: 1px solid #012880;
-    background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
+    background-image: linear-gradient(-180deg, #8c7fc4 0%, #6b4bc4 100%);
     box-shadow: 0 1rem 1.25rem 0 rgba(22,75,195,0.50),
                 0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
                 0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
@@ -102,16 +117,16 @@ h1, h3 {
     background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
   }
 
-  input[type=button], input[type=submit], button {
+  /* input[type=button], input[type=submit], button {
     padding: 5px 10px;
     border-radius: 25px;
     background-color: grey;
     color: white;
     border: 2px solid black;
     transition-duration: 0.4s;
-  }
+  } */
   
-  input[type=button]:hover, input[type=submit]:hover, button:hover {
+  /* input[type=button]:hover, input[type=submit]:hover, button:hover {
     background-color: gold;
     color: black;
   }
@@ -121,63 +136,4 @@ h1, h3 {
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;
   } 
-  /* .button {
-    position: fixed;
-    text-align: center;
-    font-size: 42px;
-    font-family: 'Raleway', sans-serif;
-    color: hsl(220, 80%, 50%);
-    width: 350px;
-    height: 100px;
-    margin-top: calc(50vh - 75px);
-    margin-left: calc(50vw - 175px);
-  
-    border-radius: 30px;
-    text-shadow: 
-      0px 5px hsl(220, 80%, 30%), 
-      0px 10px 10px #0003;
-    box-shadow: 
-      0px 0px 0px 15px hsl(330, 80%, 50%),
-      0px 10px 0px 15px hsl(330, 80%, 40%),
-      0px 20px 20px 15px #0003;
-    cursor: pointer;
-    border-radius: 100px 30px 100px 30px;
-  
-  }
-  
-  .button p {
-    margin-top: 20px;
-    transform: rotate(-3deg);
-  }
-  
-  .button:hover {
-    animation: .8s morph ease infinite;
-  }
-  
-  .button:hover p {
-    animation: .8s rot ease infinite;
-  }
-  
-  @keyframes morph {
-    0% {
-      border-radius: 100px 30px 100px 30px;
-    } 50% {
-      border-radius: 30px 100px 30px 100px;
-    } 100% {
-      border-radius: 100px 30px 100px 30px;
-    }
-  }
-  
-  @keyframes rot {
-    0% {
-      transform: rotate(-3deg);
-    } 50% {
-      transform: rotate(3deg);
-    } 100% {
-      transform: rotate(-3deg);
-    }
-  }
- */
-
-
- 
+   */
