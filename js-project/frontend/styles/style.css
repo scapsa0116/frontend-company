@@ -8,9 +8,11 @@ html {
 
 body {
     margin: 0 auto;
-    padding: 10px 50px;
+    padding: 400px 50px;
     color:white;
-    text-align:left;
+    text-align:center;
+    font-size: 20px;
+    color: rgb(226, 194, 235);
     
   }
   /* div {
@@ -22,33 +24,60 @@ body {
   background-position: left top;
   } */
   
-  nav {
+  /* nav {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     align-content: space-around;
-  }
-
-/* h1, h3 {
-    text-align:center;
-    text-shadow: 0px 0px 25px white;
   } */
 
+h1, h3 {
+    text-align:center;
+    font-size: 30px;
+    color: rgb(226, 194, 235);
+    text-shadow: 0px 0px 25px white;
+  }
+
   #drinks-form {
-    border: 1px solid rgb(130, 174, 231);
+    margin-left: 30px;
+    margin-top: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: center;
+    
+  }
+
+  #drinks-container {
+    border-style: double;
+    border-width: 15px;
+    /* position: absolute; */
+    align-items: flex-end;
+    text-align: left;
+  }
+
+  #search-form {
+    margin-right: 30px;
+    margin-top: 20px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    align-items: flex-end;
+    text-align: left;
+
   }
   
   input {
     
     cursor: pointer;
-    position: relative;
+    /* position: relative;
      left: 20px;
-     top: 10%;
+     top: 10%; */
      
-    padding: 0.5rem 0.10rem;
+    padding: 0.3rem 0.5rem; 
     border-radius: 3.75rem;
     line-height: 2.5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     
     border: 1px solid #012880;
@@ -62,11 +91,11 @@ body {
   button {
     cursor: pointer;
     position: relative;
-    padding: 0.5rem 0.7rem;
+    padding: 0.1rem 0.3rem;
     border-radius: 3.75rem;
     line-height: 2.5rem;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
     
     border: 1px solid #012880;
     background-image: linear-gradient(-180deg, #8c7fc4 0%, #6b4bc4 100%);
@@ -137,3 +166,26 @@ body {
     grid-gap: 10px;
   } 
    */
+
+   input[type="text"] {
+    width: 200px;
+    color: rgb(226, 194, 235);
+  }
+
+  h2{
+    color: red;
+    border: 1px solid red;
+    font-size: 12px;
+    position: absolute;
+    top: 150px;
+    
+   
+    
+  }
+
+  /* @media screen and (min-width: 700px) {
+    body {
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+  } */

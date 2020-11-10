@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const BASE_URL = "http://127.0.0.1:9393"
 
-
+// strIngredient  strDrinkThumb
 
 function fetchDrinks(){
     fetch(`${BASE_URL}/drinks`)
     .then(resp => resp.json())
     .then(drinks => {
         for (const drink of drinks){
-            let d = new Drink(drink.id, drink.strDrink, drink.strInstructions)
+            let d = new Drink(drink.id, drink.strDrink, drink.strIngredient, drink.strInstructions, drink.strDrinkThumb, drink.category_id)
             d.renderDrink();
         }
     })
@@ -26,10 +26,12 @@ function createForm(){
 
     drinksForm.innerHTML += 
     `
-    <h1>Create a New Cocktail!</h1>
+    
     <form>
     <input placeholder="Cocktal Name:" type="text" id="strDrink"><br><br>
-    <input placeholder="Cocktail Instructions:" type="text" id="strInstructions"><br><br><br>
+    <input placeholder="Cocktal Ingredients:" type="text" id="strIngredient"><br><br>
+    <input placeholder="Cocktail Instructions:" type="text" id="strInstructions"><br><br>
+    <input placeholder="Cocktal http:" type="text" id="strDrinkThumb"><br><br>
     <button type="submit" value="Create Drink">Create Drink</button>
     </form> 
     `
@@ -40,10 +42,15 @@ function drinkFormSubmission(){
    event.preventDefault();
     let strDrink = document.getElementById("strDrink").value
     let strInstructions = document.getElementById("strInstructions").value
+    let strIngredient  = document.getElementById("strIngredient").value
+    let strDrinkThumb = document.getElementById("strDrinkThumb").value
 
     let drink = {
         strDrink: strDrink,
-        strInstructions: strInstructions
+        strInstructions: strInstructions,
+        strIngredient : strIngredient , 
+        strDrinkThumb: strDrinkThumb,
+        category_id: category_id
     }
    
     fetch(`${BASE_URL}/drinks`,{
@@ -56,7 +63,7 @@ function drinkFormSubmission(){
     })
     .then(resp => resp.json())
     .then(drink => {
-        let d = new Drink(drink.id, drink.strDrink, drink.strInstructions)
+        let d = new Drink(drink.id, drink.strDrink, drink.strIngredient, drink.strInstructions,  drink.strDrinkThumb, drink.category_id)
         
         d.renderDrink();
     })
@@ -65,7 +72,7 @@ function drinkFormSubmission(){
 }
 
 function deleteDrink(){
-   
+    // event.preventDefault();
     let drinkId = parseInt(event.target.dataset.id)
 
     fetch(`${BASE_URL}/drinks/${drinkId}`,{
@@ -121,8 +128,8 @@ fetch(`${BASE_URL}/search/${query}`)
     `
 })
 .catch(error => {
-   const msg = {message: "Choose category alcoholic or nonalcoholic"}
-   let drinksForm = document.getElementById("drinks-form")
+   const msg = {message: `<h2>"ERROR: CHOOSE ALCOHOLIC OR NONALCOHOLIC CATEGORY"</h2>`}
+   let drinksForm = document.getElementById("search-form")
    drinksForm.innerHTML += `${msg.message}`
 })
 }
