@@ -1,8 +1,9 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
-import VideoList from './VideoList'
-import VideoDetail from './VideoDetail'
+import VideoDetail from './VideoDetail';
+import VideoList from './VideoList';
+
 
 class App extends React.Component {
 
@@ -39,12 +40,12 @@ class App extends React.Component {
             <div className='ui grid'>
             <div className='ui row'>
             <div className='eleven wide column'>
-            <VideoDetail video={this.state.selectedVideo}/>
+               <VideoDetail video={this.state.selectedVideo}/>
             </div>
-            
+
             <div className='five wide column'>
             <VideoList 
-            onVideoSelect={this.OnVideoSelect} 
+            onVideoSelect={this.onVideoSelect} 
             videos={this.state.videos} />
             </div>
             </div>
