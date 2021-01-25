@@ -5,7 +5,8 @@ class Drink{
         this.strIngredient = strIngredient;
         this.strInstructions = strInstructions;
         this.strDrinkThumb = strDrinkThumb;
-        this.category_id = category_id;
+        this.category_id = category_id
+        // this.category = category_id;
     }
 
     //render drink instance method
@@ -19,8 +20,9 @@ class Drink{
         <br><br><h1>Cocktail Name: ${this.strDrink}</h1><br>
         <li>Cocktail Ingredients: ${this.strIngredient}</li><br>
         <li>Cocktail Instructions: ${this.strInstructions}</li><br>
-        <p>Cocktail Picture: ${this.strDrinkThumb}</p><br>
-        <p>Category: ${this.category_id} </p>
+        <li>Cocktail category: ${this.category_id}</li><br>
+        <img>Cocktail Picture: ${this.strDrinkThumb}</img><br>
+        
         </ul>
         <button class="delete-bttn" data-id=${this.id} onClick="deleteDrink()">Delete Drink</button><br><br>
         `
