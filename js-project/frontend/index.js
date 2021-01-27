@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    createSearchForm();
+    handleOnSearchSubmit ()
     createForm();
     fetchDrinks();
     
@@ -32,8 +32,11 @@ function createForm(){
     <input placeholder="Cocktal Name:" type="text" id="strDrink"><br><br>
     <input placeholder="Cocktal Ingredients:" type="text" id="strIngredient"><br><br>
     <input placeholder="Cocktail Instructions:" type="text" id="strInstructions"><br><br>
-    <input placeholder="Cocktail category:" type="text" id="scategory_id"><br><br>
-    <img  placeholder="Cocktal http:" type="text" id="strDrinkThumb"><br><br>
+    <div id = "category_id">
+    <input  type="button" value="Alcoholic" >
+    <input  type="button" value="Nonalcoholic"><br><br>
+    </div>
+    <img  placeholder="Cocktal http:" type="text" id="strDrinkThumb"><br>
     <input type="submit" value="Create Drink">
     </form> 
     `
@@ -46,15 +49,14 @@ function drinkFormSubmission(e){
     let strInstructions = document.getElementById("strInstructions").value
     let strIngredient  = document.getElementById("strIngredient").value
     let strDrinkThumb = document.getElementById("strDrinkThumb").value
-    // let strDrinkThumb = document.getElementById("strDrinkThumb").value
-
+    let category_id = document.getElementById("category_id").value
 
     let drink = {
         strDrink: strDrink,
         strInstructions: strInstructions,
         strIngredient: strIngredient , 
-        strDrinkThumb: strDrinkThumb
-        // category: category_id
+        strDrinkThumb: strDrinkThumb,
+        category_id: category_id
     }
    
     fetch(`${BASE_URL}/drinks`,{
