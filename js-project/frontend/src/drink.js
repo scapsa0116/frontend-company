@@ -22,9 +22,9 @@ class Drink{
         <li>Cocktail Instructions: ${this.strInstructions}</li><br>
         <li>Cocktail category: ${this.category_id}</li><br>
         <img>Cocktail Picture: ${this.strDrinkThumb}</img><br>
-        
         </ul>
         <button class="delete-bttn" data-id=${this.id} onClick="deleteDrink()">Delete Drink</button><br><br>
+        <button class="edite-bttn" data-id=${this.id} onClick="editeDrink()">Edite Drink</button><br><br>
         `
     }
 }
