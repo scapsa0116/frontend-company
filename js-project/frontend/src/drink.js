@@ -9,7 +9,7 @@ class Drink{
         // this.category = category_id;
     }
 
-    //render drink instance method
+    //render drink instance method???
 
     renderDrink(){
         let drinksDiv = document.getElementById("drinks-container")
@@ -21,7 +21,7 @@ class Drink{
         <li>Cocktail Ingredients: ${this.strIngredient}</li><br>
         <li>Cocktail Instructions: ${this.strInstructions}</li><br>
         <li>Cocktail category: ${this.category_id}</li><br>
-        <img>Cocktail Picture: ${this.strDrinkThumb}</img><br>
+        <img>Cocktail Picture: ${this.name}</img><br>
         </ul>
         <button class="delete-bttn" data-id=${this.id} onClick="deleteDrink()">Delete Drink</button><br><br>
         <button class="edite-bttn" data-id=${this.id} onClick="editeDrink()">Edite Drink</button><br><br>

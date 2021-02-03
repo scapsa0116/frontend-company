@@ -16,7 +16,7 @@ function fetchDrinks(){
     .then(drinks => {
         console.log(drinks)
         for (const drink of drinks){
-            let d = new Drink(drink.id, drink.strDrink, drink.strIngredient, drink.strInstructions, drink.strDrinkThumb, drink.category_id)
+            let d = new Drink(drink.id, drink.strDrink, drink.strIngredient, drink.strInstructions, drink.name, drink.category_id)
             d.renderDrink();
         }
     })
@@ -32,10 +32,13 @@ function createForm(){
     <input placeholder="Cocktal Name:" type="text" id="strDrink"><br><br>
     <input placeholder="Cocktal Ingredients:" type="text" id="strIngredient"><br><br>
     <input placeholder="Cocktail Instructions:" type="text" id="strInstructions"><br><br>
-    <div id = "category_id">
-    <input  type="button" value="Alcoholic"  id="alcoholic">
-    <input  type="button" value="Nonalcoholic" id="nonalcoholic><br><br>
-    </div>
+    <input placeholder="Category" type="text" id="category_id"><br><br>
+
+    <input type="radio" id="1" name="category" value="alcoholic">
+    <label for="alcoholic">alcoholic</label><br>
+    
+    <input type="radio" id="2" name="category" value="nonalcoholic">  
+    <label for="nonalcoholic">nonalcoholic</label><br>  
     <img  placeholder="Cocktal http:" type="text" id="strDrinkThumb"><br>
     <input type="submit" value="Create Drink">
     </form> 
@@ -48,14 +51,14 @@ function drinkFormSubmission(e){
     let strDrink = document.getElementById("strDrink").value
     let strInstructions = document.getElementById("strInstructions").value
     let strIngredient  = document.getElementById("strIngredient").value
-    let strDrinkThumb = document.getElementById("strDrinkThumb").value
+    // let strDrinkThumb = document.getElementById("strDrinkThumb").value
     let category_id = document.getElementById("category_id").value
    
     let drink = {
         strDrink: strDrink,
         strInstructions: strInstructions,
         strIngredient: strIngredient , 
-        strDrinkThumb: strDrinkThumb,
+        // strDrinkThumb: strDrinkThumb,
         category_id: category_id,
         
     }
@@ -66,11 +69,11 @@ function drinkFormSubmission(e){
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({...drink, category_id: [0,1]  })
+        body: JSON.stringify({...drink, category_id: 1})
     })
     .then(resp => resp.json())
     .then(drink => {
-        let d = new Drink(drink.id, drink.strDrink, drink.strIngredient, drink.strInstructions,  drink.strDrinkThumb, drink.category_id)
+        let d = new Drink(drink.id, drink.strDrink, drink.strIngredient, drink.strInstructions,   drink.category_id)
         // console.log("d")
         d.renderDrink();
     })
@@ -87,9 +90,7 @@ function deleteDrink(){
 
          
     })
-    // setTimeout(function(){
-    //     window.location.reload();
-    //   });
+    
     
 
     this.location.reload();
