@@ -5,35 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link href="http://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <title>Cocktail App</title>
-    <script src="index.js"></script>
+    <script type="text/javascript" src="index.js"></script>
     <script src="src/drink.js"></script>
     <script src="src/category.js"></script>
 </head>
 <body>
-    <div id="search-form">
 
-        <form id="category-form">
-            <input type="text" placeholder="Search by Cathegory" id="name"  name="name" /><br><br>
-            <button type="submit" id="search-button">Search</button>
+    <div class="form-container">
+
+        <form id="create-drinks-form" style="">
+            <h3>Create Drink</h3>
+            <input id="input-strDrink" type="text" name="strDrink" value="" placeholder="Enter Drink Title....">
+            <br><br>
+            <textarea id="input-strIngredient" name="strIngredient" rows="3" cols="30" value="" placeholder="Enter Drink Ingridients..."></textarea>
+            <br><br>
+            <textarea id="input-strInstructions" name="strInstructions" rows="3" cols="30" value="" placeholder="Enter Drink Instructions..."></textarea>
+            <br><br>
+            <input id="input-strDrinkThumb" type="text" name="strDrinkThumb" value="" placeholder="Enter the image ...." class="input-text">
+            <br><br>
+
+            <p>Choose A category </p>
+            <select id="categories" name="categories">
+            <option value="9">Alcoholic</option>
+            <option value="10">Nonalcoholic</option>
+            </select>
+            <br><br>
+            <input id= 'create-button' type="submit" name="submit" value="Create New Drink" class="submit">
+            <button type="button" class="btn btn-primary">Primary</button>
+
         </form>
-            
-        <div id="search-results"> 
 
-        </div> 
-        
-  </div>
-  
-    
-    <div id="drinks-form">
     </div>
+     <br><br><br><br>
 
     <div id="drinks-container">
-        
-    </div>
 
+    </div>
     
 </body>
 </html>

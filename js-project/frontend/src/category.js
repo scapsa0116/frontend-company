@@ -19,17 +19,20 @@ function handleOnSearchSubmit (){
 
         
 
-        fetch(`http://localhost:3000/categories/${categoryName}/`)
+        fetch(`http://localhost:3000/category/${categoryName}/`)
         .then(res => res.json())
-        .then(category => {
-            const div = document.getElementById("search-results")
-            div.innerHTML += `${categoryName}`
+        .then(categoryData => {
+            const newCategory = new Category(categoryData)
+            let profileDiv = document.getElementById('profile')
+            profileDiv.innerHTML = `
+            <h2>Profile</h2>
+            <ul>
+            <li>${newCategory.name}</li>
+            <li>${newCategory.id}</li>
+            </ul>
+            `
         })
-        .catch(error => {
-            const msg = {message: `<h2>"ERROR: CHOOSE ALCOHOLIC OR NONALCOHOLIC CATEGORY"</h2>`}
-            let drinksForm = document.getElementById("search-form")
-            drinksForm.innerHTML += `${msg.message}`
-         })
+        
     })
     
 }
