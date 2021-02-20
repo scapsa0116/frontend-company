@@ -13,11 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     drinkContainer.addEventListener("click", e => {
         // console.log("clicked")
         const id = parseInt(e.target.dataset.id);
+    //   debugger;
         const drink = Drink.findById(id);
-        // debugger;
+       
 
         console.log(drink)
-        // document.querySelector('#update-drink').innerHTML = drink.renderUpdateForm(e);
+       document.querySelector('#update-drink').innerHTML = drink.renderUpdateForm();
 
         // document.querySelector('#update-drink').addEventListener('submit', e => updateFormHandler(e))
 
@@ -135,7 +136,7 @@ function deleteDrink(){
     // event.preventDefault();
     let drinkId = parseInt(event.target.dataset.id)
 
-    fetch(`${BASE_URL}/drinks/${drinkId}`,{
+    fetch(`${url}/${drinkId}`,{
         method: 'DELETE'
 
          

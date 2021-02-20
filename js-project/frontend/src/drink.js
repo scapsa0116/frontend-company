@@ -27,7 +27,7 @@ class Drink{
         </div>
         <br><br>`;
 
-        document.querySelector('#drinks-container').innerHTML += renderDrinks 
+        // document.querySelector('#drinks-container').innerHTML += renderDrinks 
     }
 
     static findById(id) {
