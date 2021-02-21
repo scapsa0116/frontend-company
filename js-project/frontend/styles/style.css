@@ -1,12 +1,12 @@
-/* //html {
+/* html {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNy1Up-rFqXeiJPhkSEflpznrtNtmrrZzpOw&usqp=CAU");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left top;
   font-family: 'Alata', sans-serif;
-}
+} */
 
-//body {
+ /* body {
     margin: 0 auto;
     padding: 400px 50px;
     color:white;
@@ -14,31 +14,31 @@
     font-size: 20px;
     color: rgb(226, 194, 235);
     
-  } */
- /* div {
-    border: 1px solid black;
-    padding: 25px 50px 75px 100px;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrluiHON1UFiyUVi8u6IzmTMzvDnNPvA-jUg&usqp=CAU");
+  }  */
+  div {
+   border: 1px solid black;
+    padding: 25px 25px 25px 25px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXx16ZaSYByPBkGzcRnw84J0qk-iASGu0xLQ&usqp=CAU");
     background-repeat: no-repeat;
   background-size: cover;
   background-position: left top;
-  }  */
+  }  
   
-  /* nav {
+  nav {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     align-content: space-around;
-  } */
+  } 
 
-/* //h1, h3 {
+h1, h3 {
     text-align:center;
     font-size: 30px;
-    color: rgb(226, 194, 235);
-    text-shadow: 0px 0px 25px white;
-  } */
+    color: rgba(110, 15, 155, 1);
+ text-shadow: 0px 0px 25px white;
+  } 
 
-  /* //#drinks-form {
+  drinks-form {
     margin-left: 30px;
     margin-top: 20px;
     position: absolute;
@@ -46,14 +46,14 @@
     right: 0px;
     text-align: center;
     
-  } */
+  }
 
-  /* //#drinks-container {
+#drinks-container {
     border-style: double;
     border-width: 15px;
     align-items: flex-end;
     text-align: left;
-  } */
+  } 
 
   /* //#search-form {
     margin-right: 30px;
@@ -66,14 +66,14 @@
 
   }
    */
-  /* input {
+  input {
     
     cursor: pointer;
     /* position: relative;
      left: 20px;
      top: 10%; */
-     
-   /* //padding: 0.3rem 0.5rem; 
+  
+   padding: 0.3rem 0.5rem; 
     border-radius: 3.75rem;
     line-height: 2.5rem;
     font-size: 1.5rem;
@@ -87,7 +87,7 @@
                 0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
   }
   
-  //button { 
+button { 
     cursor: pointer;
     position: relative;
     padding: 0.1rem 0.3rem;
@@ -104,7 +104,7 @@
                 0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
   }
   
-  //button span {
+  button span {
     color: transparent;
     background-image: linear-gradient(0deg, #EE82DA 0%, #FEFAFD 100%);
     -webkit-background-clip: text;
@@ -112,7 +112,7 @@
     filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
   }
   
-  //button::before {
+  button::before {
     content: "";
     display: block;
     height: 0.25rem;
@@ -128,7 +128,7 @@
     background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
   }
   
-  //button::after {
+  button::after {
     content: "";
     display: block;
     height: 0.25rem;
@@ -143,18 +143,18 @@
     filter: blur(1px);
     opacity: 0.05;
     background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
-  } */
+  } 
 
-  /* input[type=button], input[type=submit], button {
+  input[type=button], input[type=submit], button {
     padding: 5px 10px;
     border-radius: 25px;
     background-color: grey;
     color: white;
     border: 2px solid black;
     transition-duration: 0.4s;
-  } */
+  } 
   
-  /* input[type=button]:hover, input[type=submit]:hover, button:hover {
+  input[type=button]:hover, input[type=submit]:hover, button:hover {
     background-color: gold;
     color: black;
   }
@@ -164,20 +164,20 @@
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;
   } 
-   */
+   
 
-   /* //input[type="text"] {
+   input[type="text"] {
     width: 200px;
     color: rgb(226, 194, 235);
   }
 
-  //h2{
+  h2{
     color: red;
     border: 1px solid red;
     font-size: 12px;
     position: absolute;
     top: 150px;
-     */
+    
    
     
   }
@@ -191,4 +191,4 @@
 /* #edite-bttn{
   right: 0px;
 }
-   */ */
+   */

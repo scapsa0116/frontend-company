@@ -34,12 +34,12 @@ class Drink{
         return this.all.find(drink => drink.id === id)
     }
 
-    renderUpdateForm(){
+    renderUpdateForm() {
+        // debugger;
         return`
+        
         <form data-id =${this.id}>
         <h3>Edit a Drink!</h3>
-
-
             <input id="input-strDrink" type="text" name="strDrink" value="${this.strDrink}" class="input-text">
             <br><br>
             <textarea id="input-strIngredient" name="strIngredient" rows="3" cols="30" value="${this.strIngredient}" ></textarea>
@@ -55,10 +55,9 @@ class Drink{
             <option value="10">Nonalcoholic</option>
             </select>
             <br><br>
-    
           <input id='edit-button' type="submit" name="submit" value="Edit Drink" class="submit">
         </form>
-        <br><br>`;
+       `;
     
         
     }

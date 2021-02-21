@@ -13,16 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     drinkContainer.addEventListener("click", e => {
         // console.log("clicked")
         const id = parseInt(e.target.dataset.id);
-    //   debugger;
+    //  debugger;
         const drink = Drink.findById(id);
-       
-
-        console.log(drink)
+               console.log(drink)
        document.querySelector('#update-drink').innerHTML = drink.renderUpdateForm();
 
-        // document.querySelector('#update-drink').addEventListener('submit', e => updateFormHandler(e))
-
     })
+
+    document.querySelector('#update-drink').addEventListener('submit', e => updateFormHandler(e))
+
 })
 
 
@@ -36,7 +35,27 @@ function updateFormHandler(e) {
     const strDrinkThumb = document.querySelector("#input-strDrinkThumb").value
     const category_id = parseInt(document.querySelector('#categories').value)
     patchDrink(drink, strDrink, strIngredient, strInstructions,strDrinkThumb, category_id)
+   
+
+    function patchDrink(drink, strDrink, strIngredient, strInstructions,strDrinkThumb, category_id){
+        bodyJSON = { strDrink, strIngredient, strInstructions,strDrinkThumb, category_id }
+        fetch(`http://localhost:3000/drinks/${drink.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          Accept: 'application/json',
+          },
+          body: JSON.stringify(bodyJSON),  
+          })
+          .then(res => res.json())
+          .then(updatedDrink => console.log(updatedDrink));
+    }
+  
   }
+
+
+  
+
 
 function getFetch() {
     fetch(url) 
