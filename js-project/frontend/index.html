@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link href="http://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <title>Cocktail App</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
@@ -42,29 +43,63 @@
             </select>
             <br><br>
             <input id= 'create-button' type="submit" name="submit" value="Create New Drink" class="submit">
-
+            
         </form>
+    
 
-    </div>
+     </div>
 </section>
 </main>
      <br><br><br><br>
 
      <div class="album py-5 bg-light">
-    <div class="container" id="drinks-container">
-        <div class="row" >
-            
-        </div>
-        
-
+    
+        <div class="row" >            
+     </div>
     </div>
 
-</div>
+ 
 
-
+<div class="container" id="drinks-container" >
+</div>  
 <div id="update-drink">
 
 </div>
-    
+
+
+<!-- <ul id="container">
+    <li >
+<b> Click "Edit" button to edit content. </b>
+
+    <button id="edit">edit</button>
+    <button >remove</button>
+</li>
+</ul>
+
+
+        <script>
+      const ul = document.querySelector("#container")
+      const button = document.querySelector("#edit")
+
+    ul.addEventListener('click', (event) => {
+        if(event.target.tagName === 'BUTTON'){
+            const button = event.target;
+            const li = button.parentNode;
+            const ul = li.parentNode;
+            if(button.textContent === 'remove')
+            ul.removeChild(li);
+            
+        } else if(button.textContent === 'edit'){
+            const span = li.firstElementChild;
+            const input = document.createElement('input');
+            input.tupe = 'text';
+            input.value = span.textContent;
+            li.insertBefore(input, span);
+            li.removeChild(span);
+           
+        } -->
+    <!-- }) -->
+        <!-- </script> -->
+
 </body>
 </html>

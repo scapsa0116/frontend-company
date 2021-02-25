@@ -13,7 +13,7 @@ class Drink{
     renderDrinkCard() {
         // debugger;
         return`
-        <div data-id =${this.id}>
+        <form  data-id =${this.id}>
           <img
           src=${this.strDrinkThumb}
           height ="200" width="250">
@@ -24,29 +24,31 @@ class Drink{
           <button data-id=${this.id}>Edit</button>
           <button class="delete-bttn" data-id=${this.id} onClick="deleteDrink()">Delete Drink</button>
          
-        </div>
+        </form>
         <br><br>`;
 
         // document.querySelector('#drinks-container').innerHTML += renderDrinks 
     }
 
     static findById(id) {
-        return this.all.find(drink => drink.id === id)
+        return this.all.find(drink => 
+            parseInt(drink.id) === id
+        )
     }
 
     renderUpdateForm() {
         // debugger;
         return`
         
-        <form data-id =${this.id}>
+        <form data-id=${this.id}>
         <h3>Edit a Drink!</h3>
-            <input id="input-strDrink" type="text" name="strDrink" value="${this.strDrink}" class="input-text">
+            <input id="input-strDrink" type="text"  name="strDrink" value="${this.strDrink}" class="input-text">
             <br><br>
-            <textarea id="input-strIngredient" name="strIngredient" rows="3" cols="30" value="${this.strIngredient}" ></textarea>
+            <textarea id="input-strIngredient" name="strIngredient"  rows="3" cols="30" value="${this.strIngredient}" ></textarea>
             <br><br>
-            <textarea id="input-strInstructions" name="strInstructions" rows="3" cols="30" value="${this.strInstructions}" ></textarea>
+            <textarea id="input-strInstructions" name="strInstructions"  rows="3" cols="30" value="${this.strInstructions}" ></textarea>
             <br><br>
-            <input id="input-strDrinkThumb" type="text" name="strDrinkThumb" value="${this.strDrinkThumb}"  class="input-text">
+            <input id="input-strDrinkThumb" type="text"  name="strDrinkThumb" value="${this.strDrinkThumb}"  class="input-text">
             <br><br>
 
             <p>Choose A category </p>
@@ -58,8 +60,6 @@ class Drink{
           <input id='edit-button' type="submit" name="submit" value="Edit Drink" class="submit">
         </form>
        `;
-    
-        
     }
 }
 

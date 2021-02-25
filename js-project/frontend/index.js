@@ -9,16 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     createDrinksForm.addEventListener("submit", (e) => 
     createEventhandeler(e))
 
+
+
     const drinkContainer = document.querySelector("#drinks-container")
     drinkContainer.addEventListener("click", e => {
-        // console.log("clicked")
         const id = parseInt(e.target.dataset.id);
-    //  debugger;
         const drink = Drink.findById(id);
-               console.log(drink)
        document.querySelector('#update-drink').innerHTML = drink.renderUpdateForm();
-
-    })
+       
+    });
 
     document.querySelector('#update-drink').addEventListener('submit', e => updateFormHandler(e))
 
@@ -61,6 +60,7 @@ function getFetch() {
     fetch(url) 
     .then(res => res.json())
     .then(drinks => {
+        // debugger;
         drinks.data.forEach(drink => {
         //    debugger;  
        let newDrink = new Drink(drink, drink.attributes)
@@ -145,9 +145,12 @@ function postfetch(strDrink, strIngredient, strInstructions,strDrinkThumb, categ
      document.querySelector("#drinks-container").innerHTML += 
     //  drinksMarkup
     newDrink.renderDrinkCard()
+
+    
+    
  })
 
-
+ this.location.reload();
  
 }
 
