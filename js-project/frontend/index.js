@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drinkContainer.addEventListener("click", e => {
         const id = parseInt(e.target.dataset.id);
         const drink = Drink.findById(id);
+        // debugger;
        document.querySelector('#update-drink').innerHTML = drink.renderUpdateForm();
        
     });
