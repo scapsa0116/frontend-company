@@ -13,13 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const drinkContainer = document.querySelector("#drinks-container")
     drinkContainer.addEventListener("click", e => {
+        e.preventDefault()
         const id = parseInt(e.target.dataset.id);
         const drink = Drink.findById(id);
         // debugger;
        document.querySelector('#update-drink').innerHTML = drink.renderUpdateForm();
-       
+    //    debugger;
     });
-
+// debugger;
     document.querySelector('#update-drink').addEventListener('submit', e => updateFormHandler(e))
 
 })
@@ -29,11 +30,11 @@ function updateFormHandler(e) {
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
     const drink = Drink.findById(id);
-    const strDrink = document.querySelector("#input-strDrink").value
-    const strIngredient = document.querySelector("#input-strIngredient").value 
-    const strInstructions = document.querySelector("#input-strInstructions").value
-    const strDrinkThumb = document.querySelector("#input-strDrinkThumb").value
-    const category_id = parseInt(document.querySelector('#categories').value)
+    const strDrink = e.target.querySelector("#input-strDrink").value
+    const strIngredient = e.target.querySelector("#input-strIngredient").value 
+    const strInstructions = e.target.querySelector("#input-strInstructions").value
+    const strDrinkThumb = e.target.querySelector("#input-strDrinkThumb").value
+    const category_id = parseInt(e.target.querySelector('#categories').value)
     patchDrink(drink, strDrink, strIngredient, strInstructions,strDrinkThumb, category_id)
    
 
@@ -48,6 +49,7 @@ function updateFormHandler(e) {
           body: JSON.stringify(bodyJSON),  
           })
           .then(res => res.json())
+        //   debugger;
           .then(updatedDrink => console.log(updatedDrink));
     }
   
@@ -168,4 +170,9 @@ function deleteDrink(){
     
 
     this.location.reload();
+
+
+    
 }
+
+
