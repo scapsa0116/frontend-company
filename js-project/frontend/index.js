@@ -70,7 +70,7 @@ function getFetch() {
             // const renderDrinks =`
             // <div data-id =${drink.id}>
             //   <img
-            //   src=${drink.attributes.strDrinkThumb}
+            //   src=${drink.attributes.strDrinkThumb}  
             //   height ="200" width="250">
             //   <h3>${drink.attributes.strDrink}</h3>
             //   <p>${drink.attributes.strIngredient}</p>
@@ -79,7 +79,7 @@ function getFetch() {
             //   <button data-id=${drink.id}>Edit</button>
             // </div>
             // <br><br>`;
-
+        
             document.querySelector('#drinks-container').innerHTML += 
             newDrink.renderDrinkCard()
             // debugger;
@@ -124,6 +124,7 @@ function postfetch(strDrink, strIngredient, strInstructions,strDrinkThumb, categ
      console.log(drink);
      const drinkData = drink.data
     let newDrink = new Drink(drinkData, drinkData.attributes)
+    .catch(error => console.log(ERROR))
     //  document.querySelector("#")
 
 
@@ -152,6 +153,8 @@ function postfetch(strDrink, strIngredient, strInstructions,strDrinkThumb, categ
     
     
  })
+
+ 
 
  this.location.reload();
  
