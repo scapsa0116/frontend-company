@@ -1,79 +1,90 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-class TextComponent extends React.Component {
-  state = {
-    documents: [],
-    loading: true
+const TextComponent = () => {
+  const [state, setState] = React.useState({
+    document: {},
+    customer_code: "",
+    company_name: "",
+    cnpj: "",
+    address: "",
+    email: ""
+  });
+
+  function handleChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+
+    setState({ ...state, [name]: value });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("i am here", state);
+    fetch("http://localhost:3000/documents", {
+      credentials: "include",
+      method: "POST",
+      body: state
+    });
   };
 
-  componentDidMount() {
-    fetch(`http://localhost:3000/documents`, {
-      // credentials: "include",
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-      .then((res) => res.json())
-      .then((documentsJson) => {
-        this.setState({
-          documents: documentsJson,
-          loading: false
-        });
-      });
-  }
+  return (
+    <div>
+      <h1>Helloooo</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          customer code
+          <input
+            type='text'
+            name='customer_code'
+            onChange={handleChange}
+            value={this.state.customer_code}
+          />
+        </label>
 
-  render() {
-    const documents = this.state.documents.map((document) => {
-      return (
-        <div key={document.id}>
-          <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
-            2. Informações Gerais
-          </h1>
-          <div className='mb-8 p-2 w-full  bg-grey-light'>
-            <h5 className='font-bold text-blue-600'>Código do Cliente:</h5>
-            <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
-              {document.customer_code}
-            </div>
-            <h5 className='font-bold text-blue-600'>Razão Social:</h5>
-            <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
-              {document.company_name}
-            </div>
-            <h5 className='font-bold text-blue-600'>CNPJ</h5>
-            <div className='h-16 border-8 w-full lg:w-1/2 lg:w-1/4 bg-grey uppercase'>
-              {document.cnpj}
-            </div>
-            <h5 className='font-bold text-blue-600'>Endereço</h5>
-            <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
-              {document.address}
-            </div>
-            <h5 className='font-bold text-blue-600'>E-mail:</h5>
-            <div className='h-16 border-8 w-full lg:w-1/2 lg:w-1/4 bg-grey uppercase'>
-              {document.email}
-            </div>
-            <h5 className='font-bold text-blue-600'>User</h5>
-            <div className='h-16 border-8 w-full lg:w-1/2 lg:w-1/4 bg-grey uppercase'>
-              {document.user_name}
-            </div>
-            <Link to={`/documents/${document.id}`}>
-              <button className='inline-block bg-blue-500 px-2 py-1 text-white font-semibold text-sm rounded'>
-                Edit
-              </button>
-            </Link>
-            <Link to={`/documents/${document.id}`}>
-              <button className='object-right bg-purple-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 px-2 py-1 rounded text-sm text-white'>
-                Delete
-              </button>
-            </Link>
-          </div>
-        </div>
-      );
-    });
+        <label>
+          cats
+          <input
+            type='text'
+            name='email'
+            onChange={handleChange}
+            value={this.state.email}
+          />
+        </label>
 
-    return <div>{documents}</div>;
-  }
-}
+        <label>
+          hamsters
+          <input
+            type='text'
+            name='cnpj'
+            onChange={handleChange}
+            value={this.state.cnpj}
+          />
+        </label>
+
+        <label>
+          comapny name
+          <input
+            type='text'
+            name='company_name'
+            onChange={handleChange}
+            value={this.state.company_name}
+          />
+        </label>
+
+        <label>
+          address
+          <input
+            type='text'
+            name='address'
+            onChange={handleChange}
+            value={this.state.address}
+          />
+        </label>
+
+        <button type='submit'>Create something</button>
+      </form>
+    </div>
+  );
+};
 
 export default TextComponent;
