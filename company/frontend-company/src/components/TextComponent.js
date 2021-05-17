@@ -1,90 +1,70 @@
 import React from "react";
+import DocumentsList from "../components/DocumentsList";
+// import Body from "../components/Body";
 
-const TextComponent = () => {
-  const [state, setState] = React.useState({
-    document: {},
+class TextComponent extends React.Component {
+  state = {
+    documents: [],
     customer_code: "",
     company_name: "",
     cnpj: "",
     address: "",
     email: ""
-  });
-
-  function handleChange(event) {
-    const value = event.target.value;
-    const name = event.target.name;
-
-    setState({ ...state, [name]: value });
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("i am here", state);
-    fetch("http://localhost:3000/documents", {
-      credentials: "include",
-      method: "POST",
-      body: state
-    });
   };
 
-  return (
-    <div>
-      <h1>Helloooo</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          customer code
-          <input
-            type='text'
-            name='customer_code'
-            onChange={handleChange}
-            value={this.state.customer_code}
-          />
-        </label>
+  componentDidMount() {
+    // we'd probably want to store the API_URL in an environment variable
+    // so this would work in deployment as well but for now we'll hard code the hostname
+    fetch("http://localhost:3000/documents", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then((res) => res.json())
+      .then((documentsJson) => {
+        console.log("groups", documentsJson);
+        this.setState({
+          documents: documentsJson,
+          loading: false
+        });
+      });
+  }
 
-        <label>
-          cats
-          <input
-            type='text'
-            name='email'
-            onChange={handleChange}
-            value={this.state.email}
-          />
-        </label>
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const body = new FormData();
+  //   body.append("document[customer_code]", form.customer_code.value);
+  //   body.append("document[company_name]", form.company_name.value);
+  //   body.append("document[cnpj]", form.cnpj.value);
+  //   body.append("document[address]", form.address.value);
+  //   body.append("document[email]", form.email.value);
 
-        <label>
-          hamsters
-          <input
-            type='text'
-            name='cnpj'
-            onChange={handleChange}
-            value={this.state.cnpj}
-          />
-        </label>
+  //   fetch(`http://localhost:3000/documents`, {
+  //     credentials: "include",
+  //     method: "POST",
 
-        <label>
-          comapny name
-          <input
-            type='text'
-            name='company_name'
-            onChange={handleChange}
-            value={this.state.company_name}
-          />
-        </label>
+  //     body: body
+  //   })
+  //     .then((res) => res.json())
+  //     .then((documentsJson) => {
+  //       //    this.props.history.push('/')
+  //       console.log(documentsJson);
+  //     });
+  // };
 
-        <label>
-          address
-          <input
-            type='text'
-            name='address'
-            onChange={handleChange}
-            value={this.state.address}
-          />
-        </label>
-
-        <button type='submit'>Create something</button>
-      </form>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <DocumentsList documents={this.state.documents} />
+        {/* <Body /> */}
+      </div>
+    );
+  }
+}
 
 export default TextComponent;
+
+// Button onDoubleClick={() => window.alert(‘Double clicked!’)}
