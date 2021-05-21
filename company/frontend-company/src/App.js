@@ -9,9 +9,12 @@ import TextComponent from "./components/TextComponent";
 import Body from "./components/Body";
 import NavBar from "./components/NavBar";
 import EditDocument from "./components/EditDocument";
+import Edittext from "./components/Edittext";
 
 class App extends React.Component {
   render() {
+    const { currentUser } = this.props;
+    console.log(currentUser);
     return (
       <Router>
         <NavBar />
@@ -27,7 +30,17 @@ class App extends React.Component {
               </a>
             </div>
           </NavLink>
-          <NavLink to='/documents'></NavLink>
+          <NavLink to='/documents'>
+            <div className='-mb-px mr-1'>
+              <a
+                className='bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-grey-700 font-semibold hover:text-blue-800'
+                href='text'
+              >
+                Documents
+              </a>
+            </div>
+          </NavLink>
+          {/* <NavLink to='/documents'></NavLink> */}
         </ul>
 
         <div>
@@ -40,12 +53,12 @@ class App extends React.Component {
               <Body />
             </Route>
             <Route exact path='/documents' component={TextComponent}>
-              <TextComponent />
+              {/* <TextComponent /> */}
             </Route>
             <Route
               exact
               path={`/documents/:documentId`}
-              component={EditDocument}
+              component={Edittext}
             ></Route>
 
             {/* <Route exact path ="/documents/:documentId" component={EditDocument}>
