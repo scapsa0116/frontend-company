@@ -10,6 +10,7 @@ import Body from "./components/Body";
 import NavBar from "./components/NavBar";
 import EditDocument from "./components/EditDocument";
 import Edittext from "./components/Edittext";
+import Document from "./components/Document";
 
 class App extends React.Component {
   render() {
@@ -40,6 +41,16 @@ class App extends React.Component {
               </a>
             </div>
           </NavLink>
+          <NavLink to='/test'>
+            <div className='-mb-px mr-1'>
+              <a
+                className='bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-grey-700 font-semibold hover:text-blue-800'
+                href='text'
+              >
+                Test
+              </a>
+            </div>
+          </NavLink>
           {/* <NavLink to='/documents'></NavLink> */}
         </ul>
 
@@ -60,6 +71,7 @@ class App extends React.Component {
               path={`/documents/:documentId`}
               component={Edittext}
             ></Route>
+            <Route exact path={`/test`} component={Document}></Route>
 
             {/* <Route exact path ="/documents/:documentId" component={EditDocument}>
                   

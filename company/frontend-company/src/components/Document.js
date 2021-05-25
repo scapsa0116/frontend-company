@@ -1,91 +1,63 @@
-import React from "react";
-import Body from "../components/Body";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
 
-class Document extends React.Component {
-  // state = {
-  //   documents: [],
-  //   customer_code: "",
-  //   company_name: "",
-  //   cnpj: "",
-  //   address: "",
-  //   email: ""
-  // };
+function Document() {
+  // const [toggle, setToggle] = React.useState(true);
+  const [documents, setDocuments] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [toggle, setToggle] = React.useState(true);
+  const [text, setText] = React.useState("Sriram");
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const form = e.target;
-  //   const body = new FormData();
-  //   body.append("document[customer_code]", form.customer_code.value);
-  //   body.append("document[company_name]", form.company_name.value);
-  //   body.append("document[cnpj]", form.cnpj.value);
-  //   body.append("document[address]", form.address.value);
-  //   body.append("document[email]", form.email.value);
+  useEffect(() => {
+    fetch("http://localhost:3000/documents")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setDocuments(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
 
-  //   fetch(`http://localhost:3000/documents`, {
-  //     credentials: "include",
-  //     method: "POST",
+  function toggleInput() {
+    setToggle(false);
+  }
 
-  //     body: body
-  //   })
-  //     .then((res) => res.json())
-  //     .then((documentsJson) => {
-  //       //    this.props.history.push('/')
-  //       console.log(documentsJson);
-  //     });
-  // };
+  function handleChange(event) {
+    setDocuments(event.target.value);
+  }
 
-  // renderAbout() {
-  //   console.log("click");
-  //   return (
-  //     <div>
-
-  //     </div>
-  //   );
-  // }
-
-  render() {
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
     return (
       <div>
-        <Link to={`/documents/${this.props.document.id}`}>
-          <div>
-            <form
-              onSubmit={this.handleSubmit}
-              className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'
-            >
-              <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
-                2. Informações Gerais
-              </h1>
-
-              <fieldset className='mb-8 p-2 w-full  bg-grey-light'>
-                <h5 className='font-bold text-blue-600'>Código do Cliente:</h5>
-                <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
-                  {this.props.document.customer_code}
-                </div>
-
-                <h5 className='font-bold text-blue-600'>Razão Social:</h5>
-                <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
-                  {this.props.document.company_name}
-                </div>
-
-                <h5 className='font-bold text-blue-600'>CNPJ:</h5>
-                <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
-                  {this.props.document.cnpj}
-                </div>
-
-                <h5 className='font-bold text-blue-600'>Endereço:</h5>
-                <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
-                  {this.props.document.address}
-                </div>
-
-                <h5 className='font-bold text-blue-600'>E-mail:</h5>
-                <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
-                  {this.props.document.email}
-                </div>
-              </fieldset>
-            </form>
-          </div>
-        </Link>
+        {toggle ? (
+          <ul onDoubleClick={toggleInput}>
+            {documents.map((document) => (
+              <li key={document.id}>
+                {document.email} {document.adress}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <form>
+            {documents.map((document) => (
+              <input
+                type='text'
+                value={document.email}
+                onChange={handleChange}
+              />
+            ))}
+          </form>
+        )}
       </div>
     );
   }

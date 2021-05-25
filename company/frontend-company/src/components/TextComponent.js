@@ -1,6 +1,5 @@
 import React from "react";
-import DocumentsList from "../components/DocumentsList";
-// import Body from "../components/Body";
+import { Link } from "react-router-dom";
 
 class TextComponent extends React.Component {
   state = {
@@ -13,8 +12,6 @@ class TextComponent extends React.Component {
   };
 
   componentDidMount() {
-    // we'd probably want to store the API_URL in an environment variable
-    // so this would work in deployment as well but for now we'll hard code the hostname
     fetch("http://localhost:3000/documents", {
       method: "get",
       headers: {
@@ -32,34 +29,51 @@ class TextComponent extends React.Component {
       });
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const form = e.target;
-  //   const body = new FormData();
-  //   body.append("document[customer_code]", form.customer_code.value);
-  //   body.append("document[company_name]", form.company_name.value);
-  //   body.append("document[cnpj]", form.cnpj.value);
-  //   body.append("document[address]", form.address.value);
-  //   body.append("document[email]", form.email.value);
-
-  //   fetch(`http://localhost:3000/documents`, {
-  //     credentials: "include",
-  //     method: "POST",
-
-  //     body: body
-  //   })
-  //     .then((res) => res.json())
-  //     .then((documentsJson) => {
-  //       //    this.props.history.push('/')
-  //       console.log(documentsJson);
-  //     });
-  // };
-
   render() {
     return (
       <div>
-        <DocumentsList documents={this.state.documents} />
-        {/* <Body /> */}
+        {this.state.documents.map((document, index) => (
+          <div>
+            <Link to={`/documents/${document.id}`}>
+              <div>
+                <form className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'>
+                  <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
+                    2. Informações Gerais
+                  </h1>
+
+                  <fieldset className='mb-8 p-2 w-full  bg-grey-light'>
+                    <h5 className='font-bold text-blue-600'>
+                      Código do Cliente:
+                    </h5>
+                    <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                      {document.customer_code}
+                    </div>
+
+                    <h5 className='font-bold text-blue-600'>Razão Social:</h5>
+                    <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                      {document.company_name}
+                    </div>
+
+                    <h5 className='font-bold text-blue-600'>CNPJ:</h5>
+                    <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                      {document.cnpj}
+                    </div>
+
+                    <h5 className='font-bold text-blue-600'>Endereço:</h5>
+                    <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                      {document.address}
+                    </div>
+
+                    <h5 className='font-bold text-blue-600'>E-mail:</h5>
+                    <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                      {document.email}
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </Link>
+          </div>
+        ))}
       </div>
     );
   }
