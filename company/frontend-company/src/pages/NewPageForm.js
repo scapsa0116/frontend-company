@@ -1,26 +1,21 @@
 import React from "react";
-import NewPageForm from "../pages/NewPageForm";
 
-class Body extends React.Component {
+class NewPageForm extends React.Component {
   state = {
-    customer_code: "",
-    company_name: "",
-    cnpj: "",
-    address: "",
-    email: ""
+    distribuidor: "",
+    responsavel: "",
+    data: ""
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const body = new FormData();
-    body.append("document[customer_code]", form.customer_code.value);
-    body.append("document[company_name]", form.company_name.value);
-    body.append("document[cnpj]", form.cnpj.value);
-    body.append("document[address]", form.address.value);
-    body.append("document[email]", form.email.value);
+    body.append("page[distribuidor]", form.distribuidor.value);
+    body.append("page[responsavel]", form.responsavel.value);
+    body.append("page[data]", form.Date());
 
-    fetch(`http://localhost:3000/documents`, {
+    fetch(`http://localhost:3000/pages`, {
       credentials: "include",
       method: "POST",
 
@@ -35,18 +30,19 @@ class Body extends React.Component {
   render() {
     return (
       <div>
-        <NewPageForm />
-
         <form
           onSubmit={this.handleSubmit}
           className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'
         >
           <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
-            2. Informações Gerais
+            JBP 2021
+          </h1>
+          <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
+            Canal Distribuidores
           </h1>
 
           <fieldset className='mb-8 p-2 w-full  bg-grey-light'>
-            <h5 className='font-bold text-blue-600'>Código do Cliente:</h5>
+            <h5 className='font-bold text-blue-600'>Distribuidor:</h5>
             <input
               type='text'
               name='customer_code'
@@ -57,7 +53,7 @@ class Body extends React.Component {
               className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'
             />
 
-            <h5 className='font-bold text-blue-600'>Razão Social:</h5>
+            <h5 className='font-bold text-blue-600'>Responsavel:</h5>
             <input
               type='text'
               name='company_name'
@@ -68,7 +64,7 @@ class Body extends React.Component {
               className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'
             />
 
-            <h5 className='font-bold text-blue-600'>CNPJ:</h5>
+            <h5 className='font-bold text-blue-600'>Data:</h5>
             <input
               type='text'
               ref='cnpj'
@@ -76,28 +72,6 @@ class Body extends React.Component {
               cnpj='cnpj'
               id='cnpj'
               placeholder='CNPJ'
-              className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'
-            />
-
-            <h5 className='font-bold text-blue-600'>Endereço:</h5>
-            <input
-              type='text'
-              name='address'
-              ref='address'
-              company_name='address'
-              id='address'
-              placeholder='address'
-              className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'
-            />
-
-            <h5 className='font-bold text-blue-600'>E-mail:</h5>
-            <input
-              type='text'
-              name='email'
-              ref='email'
-              company_name='email'
-              id='email'
-              placeholder='email'
               className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'
             />
           </fieldset>
@@ -110,4 +84,4 @@ class Body extends React.Component {
   }
 }
 
-export default Body;
+export default NewPageForm;
