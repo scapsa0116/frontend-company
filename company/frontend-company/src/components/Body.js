@@ -1,5 +1,5 @@
 import React from "react";
-import NewPageForm from "../pages/NewPageForm";
+// import NewPageForm from "../pages/NewPageForm";
 
 class Body extends React.Component {
   state = {
@@ -7,7 +7,10 @@ class Body extends React.Component {
     company_name: "",
     cnpj: "",
     address: "",
-    email: ""
+    email: "",
+    distribuidor: "",
+    responsavel: "",
+    data: ""
   };
 
   handleSubmit = (e) => {
@@ -19,6 +22,9 @@ class Body extends React.Component {
     body.append("document[cnpj]", form.cnpj.value);
     body.append("document[address]", form.address.value);
     body.append("document[email]", form.email.value);
+    body.append("document[distribuidor]", form.distribuidor.value);
+    body.append("document[responsavel]", form.responsavel.value);
+    body.append("document[data]", form.Date());
 
     fetch(`http://localhost:3000/documents`, {
       credentials: "include",
@@ -34,13 +40,53 @@ class Body extends React.Component {
 
   render() {
     return (
-      <div>
-        <NewPageForm />
+      <div onSubmit={this.handleSubmit}>
+        {/* <NewPageForm /> */}
+        <form className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'>
+          <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
+            JBP 2021
+          </h1>
+          <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
+            Canal Distribuidores
+          </h1>
 
-        <form
-          onSubmit={this.handleSubmit}
-          className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'
-        >
+          <fieldset className='mb-8 p-2 w-full  bg-grey-light'>
+            <h5 className='font-bold text-blue-600'>Distribuidor:</h5>
+            <input
+              type='text'
+              name='distribuidor'
+              ref='distribuidor'
+              customer_code='distribuidor'
+              id='distribuidor'
+              placeholder='distribuidor'
+              className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'
+            />
+
+            <h5 className='font-bold text-blue-600'>Responsavel:</h5>
+            <input
+              type='text'
+              name='responsavel'
+              ref='responsavel'
+              company_name='responsavel'
+              id='responsavel'
+              placeholder='responsavel'
+              className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'
+            />
+
+            <h5 className='font-bold text-blue-600'>Data:</h5>
+            <input
+              type='text'
+              ref='data'
+              name='data'
+              cnpj='data'
+              id='data'
+              placeholder='data'
+              className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'
+            />
+          </fieldset>
+        </form>
+
+        <form className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'>
           <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
             2. Informações Gerais
           </h1>
