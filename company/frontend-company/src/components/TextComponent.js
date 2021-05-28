@@ -34,6 +34,32 @@ class TextComponent extends React.Component {
       <div>
         {this.state.documents.map((document, index) => (
           <div>
+            <div className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'>
+              <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
+                JBP 2021
+              </h1>
+              <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
+                Canal Distribuidores
+              </h1>
+
+              <fieldset className='mb-8 p-2 w-full  bg-grey-light'>
+                <h5 className='font-bold text-blue-600'>Distribuidor:</h5>
+                <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                  {document.distribuidor}
+                </div>
+
+                <h5 className='font-bold text-blue-600'>Responsavel:</h5>
+                <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                  {document.responsavel}
+                </div>
+
+                <h5 className='font-bold text-blue-600'>Data:</h5>
+                <div className='h-16 border-8 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                  {document.data}
+                </div>
+              </fieldset>
+            </div>
+
             <Link to={`/documents/${document.id}`}>
               <div>
                 <form className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'>
