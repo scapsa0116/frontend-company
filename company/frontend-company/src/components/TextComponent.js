@@ -8,7 +8,9 @@ class TextComponent extends React.Component {
     company_name: "",
     cnpj: "",
     address: "",
-    email: ""
+    email: "",
+    visao: "",
+    missao: ""
   };
 
   componentDidMount() {
@@ -58,6 +60,22 @@ class TextComponent extends React.Component {
                   {document.data}
                 </div>
               </fieldset>
+            </div>
+
+            <div className='maw-w-6xl w-3/4 mx-auto mt-16 shadow-md px-4 py-6'>
+              <h1 className='mb-4 font-bold text-center text-blue-600 items-stretch  bg-grey-light'>
+                1. Visao - Missao do Distribuidor
+              </h1>
+
+              <h5 className='font-bold text-black-600'>visao:</h5>
+              <div className='h-20 border-2 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                {document.visao}
+              </div>
+
+              <h5 className='font-bold text-black-600'>missao:</h5>
+              <div className='h-20 border-2 w-full md:w-1/2 lg:w-1/4 bg-grey uppercase'>
+                {document.missao}
+              </div>
             </div>
 
             <Link to={`/documents/${document.id}`}>
